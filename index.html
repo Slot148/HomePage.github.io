@@ -14,26 +14,26 @@
   <body>
     <div class="container">
       <header>
-        <h1>Nicolas</h1>
+        <h1>Meu Portifólio</h1>
         <p>Desenvolvedor Web | Designer | Criador de Soluções</p>
       </header>
       <section class="profile">
-        <img src="" alt="">
+        <img src="" alt="Minha Foto" />
         <div class="profile-info">
           <h2>Sobre Mim</h2>
-          <p>Nome: Nicolas Anderson Ferreira Freitas</p>
+          <p>Nome: Nícolas Anderson Ferreira Freitas</p>
           <p>Email: nicolasferreira.work2005@gmail</p>
           <p>Número: (12) 98208-8623</p>
           <p>Localização: São José dos Campos, São Paulo</p>
         </div>
       </section>
       <section class="section">
-      <h2>Projetos</h2>
-      <ul>
-        <li><strong>Projeto1</strong>: Réplica do windows95</li>
-        <li><strong>Projeto2</strong></li>
-        <li><strong>Projeto3</strong></li>
-      </ul>
+        <h2>Projetos</h2>
+        <ul>
+          <li><strong>Projeto1</strong>: Réplica do windows95</li>
+          <li><strong>Projeto2</strong></li>
+          <li><strong>Projeto3</strong></li>
+        </ul>
       </section>
       <section class="section">
         <h2>Habilidades</h2>
@@ -46,7 +46,29 @@
       </section>
       <section class="section">
         <h2>Contato</h2>
+
+        <form action="enviaremail.php" method="post">
+          <div class="form-group">
+            <label for="namebox">Nome:</label>
+            <input type="text" id="namebox" required/>
+          </div>
+          <div class="form-group">
+            <label for="emailbox">Email:</label>
+            <input type="email" id="emailbox" required />
+          </div>
+          <div class="form-group">
+            <label for="messagebox">Mensagem:</label>
+            <textarea name="messagebox" id="messagebox" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
       </section>
+      <footer>
+        <p>&copy; 2024 Seu Nome. 
+          <a href="#">Privacidade</a> | <a href="#">Termos</a></p>
+      </footer>
     </div>
   </body>
 </html>
