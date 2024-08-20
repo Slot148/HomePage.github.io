@@ -1,13 +1,11 @@
-body * {
-  border: 1px solid red;
-}
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
 body {
   font-family: "Orbitron", sans-serif;
-  background: url("") no-repeat center center fixed;
+  background: url("https://cdn.pixabay.com/photo/2021/03/02/01/07/cyberpunk-6061251_1280.jpg")
+    no-repeat center center fixed;
   background-size: cover;
-  /*color: #e0e0e0;*/
-  color: black;
+  color: #e0e0e0;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -25,6 +23,17 @@ header {
   margin: 0 0 20px 0;
 }
 
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+p {
+  font-size: 1.2em;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -33,10 +42,25 @@ header {
   border-radius: 10px;
   margin: 0 0 40px 0;
   padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
 }
 
 .profile-info {
   text-align: center;
+}
+
+.profile-info h2 {
+  font-size: 2em;
+  margin: 10px 0;
+  color: #00ff00;
+  text-shadow: 0 0 8px #00ff00, 0 0 16px #00ff00;
+}
+
+.profile-info p {
+  font-size: 1em;
+  margin: 5px 0;
 }
 
 .profile img {
@@ -44,13 +68,17 @@ header {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid red;
+  border: 4px solid #00ff00;
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
 }
 
 .section {
   border-radius: 10px;
   margin: 0 0 40px 0;
   padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .section ul {
@@ -61,6 +89,19 @@ header {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.section h2 {
+  font-size: 2em;
+  margin: 0 0 10px 0;
+  color: #00ff00;
+  text-shadow: 0 0 8px #00ff00, 0 0 16px #00ff00;
+}
+
+.section p {
+  font-size: 1em;
 }
 
 .form-group {
@@ -73,27 +114,54 @@ header {
   font-size: 1em;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
+  background-color: transparent;
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   font-size: 1em;
   box-sizing: border-box;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    outline: none;
 }
 
 .form-group button {
+  background: #00ff00;
+  color: #000;
+  border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+button:hover {
+  background: #00cc00;
 }
 
 .form-group textarea {
   height: 150px;
   resize: none;
+box-shadow: 0 0 5px rgba(0, 255, 0, 0.5)
 }
 
 footer {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  margin: 40px 0 0 0;
+  padding: 10px;
+  color: #e0e0e0;
+  background: rgba(0, 0, 0, 0.6)
+}
+
+footer a {
+  color: #00ff00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
