@@ -1,41 +1,50 @@
-//EXEMPLO PARA CONSTRUÇÃO DE JANELAS
-
-// const div = document.createElement("div");
-// const div2 = document. createElement("div")
-
-// document.body.appendChild(div);
-// div.style.backgroundColor = "red";
-// div.style.padding = "600px";
-// div.classList.add('classe1', 'classe2', 'classe3');
-// div.id = 'meuid';
-// div.appendChild(div2)
-// div2.style.backgroundColor = "blue";
-// div2.style.padding = "300px";
-// div2.classList.add('classe1', 'classe2', 'classe3');
-// div2.id = 'meuid';
-
-const workspace = document.createElement("div");
-const taskbar = document.createElement("div");
-const startbtn = document.createElement("button");
-const clock = document.createElement("button");
-
-function basic() {
-  //workspace
-  document.body.appendChild(workspace);
-  workspace.classList.add("workspace");
-  //taskbar
-  document.body.appendChild(taskbar);
-  taskbar.classList.add("taskbar", "borda1");
-  //botão iniciar
-  taskbar.appendChild(startbtn);
-  startbtn.classList.add("borda1");
-  startbtn.id = "btniniciar";
-  startbtn.addEventListener("click", function () {
-    startbtn.classList.toggle("borda1");
-    startbtn.classList.toggle("borda2");
-  });
-  //botão relogio
-  taskbar.appendChild(clock);
-  clock.id = "menuclock";
-  clock.classList.add("borda2");
+function createElement(tag, parent, id, classes){
+  const element = document.createElement(tag)
+  element.id = id
+  element.classList.add(...classes)
+  parent.appendChild(element)
+  return element
 }
+
+
+
+function basic(){
+//workspace
+const workspace = createElement('div', document.body, 'workspace', ['workspace'])
+
+//taskbar
+const taskbar = createElement('div', document.body, 'taskbar', ['borda1', 'taskbar'])
+
+//botão iniciar
+const startbtn = createElement('button', taskbar, 'btniniciar', ['borda1'])
+
+startbtn.textContent = 'iniciar'
+
+startbtn.addEventListener("click", function(){
+  startbtn.classList.toggle('borda1')
+  startbtn.classList.toggle('borda2')
+});
+
+//botão relogio
+const clock = createElement('button', taskbar, 'menuclock', ['borda2'])
+  
+}
+
+
+function updateClock() {
+  const clockElement = document.getElementById('menuclock');
+  const dateElement = document.getElementById('date');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const year = String(now.getFullYear()).slice(-2);
+
+
+  clockElement.textContent = `${hours}:${minutes}`;
+  dateElement.textContent = `${day}/${month}/${year}`;
+}
+
+
+setInterval(updateClock, 1000)
