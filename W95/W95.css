@@ -1,0 +1,77 @@
+@font-face {
+  font-family: windows;
+  src: url(W95FA.otf);
+}
+
+body {
+  display: flexbox;
+  width: 98vw;
+  height: 98vh;
+  background-color: black;
+  overflow: hidden;
+  justify-content: center;
+  margin: 0;
+  padding: 5px;
+}
+
+.workspace {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  grid-auto-flow: column;
+  width: 98.5vw;
+  height: 91.5vh;
+  background-color: #008080;
+  padding: 4px;
+  z-index: 0;
+}
+
+/*area de trabalho e botão iniciar*/
+
+.taskbar {
+  display: flex;
+  align-items: center;
+  width: 98.5vw;
+  height: 35px;
+  background-color: #c0c0c0;
+  border: 3px solid white;
+  border-bottom: 3px solid black;
+  border-right: 3px solid rgb(97, 49, 49);
+  padding: 2px;
+  justify-content: space-between;
+}
+
+#btniniciar {
+  height: 32px;
+  width: 80px;
+  margin: 0 2px;
+  justify-content: center;
+  font-family: windows;
+  font-weight: bolder;
+  font-size: 15px;
+  background-color: #c0c0c0;
+}
+
+#menuclock {
+  height: 32px;
+  width: 80px;
+  margin: 0 2px;
+  text-align: center;
+  font-family: windows;
+  font-size: 16px;
+  background-color: #c0c0c0;
+}
+
+.borda1 {
+  border: 3px solid white;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+
+.borda2 {
+  border: 3px solid black;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
