@@ -124,8 +124,9 @@ p {
   box-sizing: border-box;
   border: none;
   background: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-    outline: none;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  outline: none;
+  color: #00ff00;
 }
 
 .form-group button {
