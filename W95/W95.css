@@ -77,14 +77,52 @@ body {
   padding: 2px 0 0 0;
 }
 
-.menuiniciar{
-    background-color: #c0c0c0;
-    width: 210px;
-    height: 300px;
-    bottom: 46px;
-    left: 1;
-    overflow-x:hidden;
-    position: absolute;
-    flex-wrap: nowrap;
+.menuiniciar {
+  display: flex;
+  background-color: #c0c0c0;
+  width: 210px;
+  height: 300px;
+  bottom: 46px;
+  left: 1;
+  overflow-x: hidden;
+  position: absolute;
+  flex-wrap: nowrap;
 }
 
+.barra {
+  top: 0;
+  bottom: 10px;
+  width: 35px;
+  height: 100%;
+  background-color: #73817b;
+  overflow: hidden;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: relative;
+}
+
+.windows95txt {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  font-family: Arial;
+  font-weight: bolder;
+  font-size: 32px;
+  color: #c0c0c0;
+  margin-bottom: 5px;
+
+
+
+}
+.w95 {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  font-family: Arial;
+  font-weight: 100;
+  font-size: 30px;
+  color: white;
+
+
+
+}
