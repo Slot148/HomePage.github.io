@@ -1,41 +1,50 @@
-fetch('W95.json')
-  .then(response => response.json())
-  .then(data =>{
-    console.log(data);
-  })
-  .catch(error => console.error('ERRO .JSON', error))
+const workSpace = {
+  tag: "div",
+  id: "workspace",
+  classes: ["workspace"],
+};
 
-  
-function createElement(
-  tag,
-  parent,
-  id,
-  content,
-  classes,
-  eventType,
-  eventFunction
-) {
-  const element = document.createElement(tag);
-  element.id = id;
-  element.classList.add(...classes);
-  if (eventType && eventFunction) {
-    element.addEventListener(eventType, eventFunction);
+const taskBar = {
+  tag: "div",
+  id: "taskbar",
+  classes: ["taskbar"],
+};
+
+function construct(objeto) {
+  const { tag, parent, id, content, classes } = objeto;
+
+  function desconstruct(
+    tag,
+    parent,
+    id,
+    content,
+    classes,
+    eventType,
+    eventFunction
+  ) {
+    const element = document.createElement(tag);
+    if (id) element.id = id;
+    if (classes) element.classList.add(...classes);
+    if (eventType && eventFunction) {
+      element.addEventListener(eventType, eventFunction);
+    }
+    if (parent) {
+      parent.appendChild(element);
+    } else {
+      document.body.appendChild(element);
+    }
+    if (content) element.textContent = content;
+    return element;
   }
-  parent.appendChild(element);
-  element.textContent = content;
-  return element;
+  console.log(desconstruct);
+  return desconstruct(tag, parent, id, content, classes);
 }
 
 //workspace
-const workspace = createElement("div", document.body, "workspace", "", [
-  "workspace",
-]);
+construct(workSpace);
 
 //taskbar
-const taskbar = createElement("div", document.body, "taskbar", "", [
-  "borda1",
-  "taskbar",
-]);
+construct(taskBar);
 
 //botão iniciar
 const startbtn = createElement(
