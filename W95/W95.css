@@ -43,7 +43,7 @@ body {
   justify-content: space-between;
 }
 
-#btniniciar {
+.buttonType1 {
   height: 32px;
   width: 80px;
   margin: 0 2px;
@@ -53,16 +53,6 @@ body {
   font-size: 15px;
   background-color: #c0c0c0;
 }
- 
-#menuclock {
-  height: 32px;
-  width: 80px;
-  margin: 0 2px;
-  text-align: center;
-  font-family: windows;
-  font-size: 16px;
-  background-color: #c0c0c0;
-}
 
 .borda1 {
   border: 3px solid white;
@@ -70,14 +60,20 @@ body {
   border-right: 3px solid black;
 }
 
-.borda2 {
+.borda1.ativo {
   border: 3px solid black;
   border-bottom: 3px solid white;
   border-right: 3px solid white;
   padding: 2px 0 0 0;
 }
 
-.menuiniciar {
+.borda2{
+  border: 3px solid black;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.menuIniciar {
   display: flex;
   background-color: #c0c0c0;
   width: 210px;

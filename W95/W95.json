@@ -1,9 +1,0 @@
-{
-    "tag": "button",
-    "parent": "document.body",
-    "id": "startbtn",
-    "content": "Iniciar",
-    "classes": ["borda1"],
-    "eventType": "click",
-    "eventFunction": "toggleBorder"
-}
