@@ -34,10 +34,30 @@ const menuIniciar = [
     id: "menuIniciar",
     classes: ["menuIniciar", "borda1"],
   },
-  { tag: "div", parent: "menuIniciar", classes: ["barra"] },
+  {
+    tag: "div",
+    parent: "menuIniciar",
+    id: "decMenuIniciarBar",
+    classes: ["barra"],
+  },
+  {
+    tag: "p",
+    parent: "decMenuIniciarBar",
+    content: "Mindows",
+    classes: ["windows95txt"],
+  },
+  { tag: "p", parent: "decMenuIniciarBar", content: "95", classes: ["w95"] },
 ];
 
-function construct({
+function construct(elements){
+    if(Array.isArray(elements)){
+      elements.forEach(item => constructStep2(item));
+    }else{
+      constructStep2(elements)
+    }
+    
+  }
+function constructStep2({
   tag,
   type,
   parent,
@@ -68,43 +88,6 @@ function construct({
   return element;
 }
 
-// function constructArr(elements) {
-//   elements.forEach(({
-//     tag,
-//     type,
-//     parent,
-//     id,
-//     content,
-//     classes,
-//     eventType,
-//     eventFunction,
-//   }) => {
-    
-//   const element = document.createElement(tag);
-//   if (tag === "input" && type) element.type = type;
-//   if (id) element.id = id;
-//   if (classes) element.classList.add(...classes);
-//   if (eventType && eventFunction) {
-//     element.addEventListener(eventType, eventFunction);
-//   }
-//   if (parent) {
-//     const parentElement = document.getElementById(parent);
-//     if (parentElement) {
-//       parentElement.appendChild(element);
-//     } else {
-//       console.warn(`Elemento com id "${parent}" não encontrado. `);
-//     }
-//   } else {
-//     document.body.appendChild(element);
-//   }
-//   if (content) element.textContent = content;
-//   return element;
-// })
-// }
-
-
-
-
 //workspace
 construct(workSpace);
 
@@ -116,17 +99,6 @@ construct(startBtn);
 
 //botão relogio
 construct(taskBarClock);
-
-
-
-
-
-
-
-
-
-
-
 
 function updateClock() {
   const clockElement = document.getElementById("taskBarClock");
@@ -149,10 +121,21 @@ function toggleBorder() {
 }
 
 function toggleMenu(objeto) {
-  const menuCondition = document.getElementById(objeto[0].id);
-  if (menuCondition) {
-    menuCondition.remove();
-  } else {
-    objeto.forEach(item => construct(item))
+  if (Array.isArray(objeto)) {
+    const menuCondition = document.getElementById(objeto[0].id);
+    if (menuCondition) {
+      menuCondition.remove();
+    } else {
+      construct(objeto)
+    }
+  } else if(objeto && objeto.id){
+    const menuCondition = document.getElementById(objeto.id);
+    if (menuCondition) {
+      menuCondition.remove();
+    } else {
+      construct(objeto);
+    }
   }
 }
+
+
