@@ -10,15 +10,22 @@ const taskBar = {
   classes: ["taskbar"],
 };
 
-const startBtn = {
+const startBtn = [{
   tag: "button",
   parent: "taskbar",
   id: "btniniciar",
-  content: "Iniciar",
   classes: ["buttonType1", "borda1"],
   eventType: "click",
   eventFunction: toggleBorder,
-};
+},
+{
+  tag: 'span',
+  parent: 'btniniciar',
+  id: 'btnIniciarTextContent',
+  content: '<u>In<u>iciar',
+  classes: ['underline']
+},
+]
 
 const taskBarClock = {
   tag: "button",
@@ -44,49 +51,60 @@ const menuIniciar = [
     tag: "p",
     parent: "decMenuIniciarBar",
     content: "Mindows",
-    classes: ["windows95txt"],
+    classes: ["windows95txt", 'underline'],
   },
   { tag: "p", parent: "decMenuIniciarBar", content: "95", classes: ["w95"] },
 ];
 
+
+
 function construct(elements){
-    if(Array.isArray(elements)){
-      elements.forEach(item => constructStep2(item));
-    }else{
-      constructStep2(elements)
-    }
-    
+  if(Array.isArray(elements)){
+    elements.forEach(item => constructStep2(item));
+  }else{
+    constructStep2(elements)
   }
-function constructStep2({
-  tag,
-  type,
-  parent,
-  id,
-  content,
-  classes,
-  eventType,
-  eventFunction,
-}) {
-  const element = document.createElement(tag);
-  if (tag === "input" && type) element.type = type;
-  if (id) element.id = id;
-  if (classes) element.classList.add(...classes);
-  if (eventType && eventFunction) {
-    element.addEventListener(eventType, eventFunction);
-  }
-  if (parent) {
-    const parentElement = document.getElementById(parent);
-    if (parentElement) {
-      parentElement.appendChild(element);
-    } else {
-      console.warn(`Elemento com id "${parent}" não encontrado. `);
-    }
-  } else {
-    document.body.appendChild(element);
-  }
-  if (content) element.textContent = content;
-  return element;
 }
+function constructStep2({
+tag,
+type,
+parent,
+id,
+content,
+classes,
+eventType,
+eventFunction,
+}) {
+const element = document.createElement(tag);
+if ((tag === "input" || tag === "button") && type) element.type = type;
+if (id) element.id = id;
+if (classes) element.classList.add(...classes);
+if (eventType && eventFunction) {
+  element.addEventListener(eventType, eventFunction);
+}
+if (parent) {
+  const parentElement = document.getElementById(parent);
+  if (parentElement) {
+    parentElement.appendChild(element);
+  } else {
+    console.warn(`Elemento com id "${parent}" não encontrado. `);
+  }
+} else {
+  document.body.appendChild(element);
+}
+if (content) {
+  if (tag === "input" || tag === "img") {
+    element.value = content;
+  } else if (tag === "a") {
+    element.href = content;
+  } else {
+    element.innerHTML = content;
+  }
+}
+
+return element;
+}
+
 
 //workspace
 construct(workSpace);
