@@ -22,7 +22,7 @@ const startBtn = [{
   tag: 'span',
   parent: 'btniniciar',
   id: 'btnIniciarTextContent',
-  content: '<u>In<u>iciar',
+  content: '<u>In</u>iciar',
   classes: ['underline']
 },
 ]
