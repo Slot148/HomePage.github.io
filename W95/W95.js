@@ -13,7 +13,6 @@ const taskBar =
     children:[
       {
         tag: "button",
-        parent: "taskbar",
         id: "btniniciar",
         classes: ["buttonType1", "borda1"],
         eventType: "click",
@@ -48,13 +47,19 @@ const menuIniciar = {
         classes: ["barra"],
         children:[
           {
-            tag: "p",
-            content: "Mindows",
-            classes: ["windows95txt"],
-          },
-        
-          { tag: "p", content: "95", classes: ["w95"] },
-        
+            tag: "div",
+            id: "barraDivIniciar",
+            children:[
+              {
+                tag: "p",
+                content: "Windows",
+                classes: ["windows95txt"],
+              },
+            
+              { tag: "p", content: "95", classes: ["w95"] },
+            
+            ]
+          }
         ]
       },
       {
@@ -119,12 +124,9 @@ const menuIniciar = {
         {
           tag: "button",
           id: "shutdown",
-          content: "Documents",
-          eventType: "click",
-          eventFunction: function () {
-            toggleState.call(this);
-          },
-        },]
+          content: "Shutdown",
+        },
+      ]
       },
     ]
   }
